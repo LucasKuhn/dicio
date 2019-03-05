@@ -7,3 +7,33 @@ File.open("words.txt", "r").each_line do |line|
     classification:classification
   )
 end
+
+numbers = [
+"zero",
+"um",
+"dois",
+"três",
+"quatro",
+"cinco",
+"seis",
+"sete",
+"oito",
+"nove",
+"dez",
+"onze",
+"doze",
+"treze",
+"quatorze",
+"catorze",
+"quinze",
+"dezesseis",
+"dezessete",
+"dezoito",
+"dezenove",
+"vinte"
+]
+
+numbers.each do |number|
+  word = Word.find_by(name:number)
+  word.update(classification:'number')
+end

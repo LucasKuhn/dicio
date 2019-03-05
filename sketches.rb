@@ -30,6 +30,8 @@ def sort_for_regex(string)
 end
 
 numbers.each do |number|
+  word = Word.find_by(name:number)
+  word.update(classification:'number')
 end
 
 def search_for(string)

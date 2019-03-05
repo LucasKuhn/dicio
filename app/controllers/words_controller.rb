@@ -56,6 +56,25 @@ class WordsController < ApplicationController
     render json: @words
   end
 
+  def charade
+    letters = params[:search].split("-")
+    @words = []
+    Word.all.each do |word|
+      next if word.name.length < letters.size
+      possible_word = true
+      word.name.chars.each_with_index do |letter,index|
+        next unless letters[index]
+        unless letters[index].include?(letter)
+          possible_word = false
+        end
+      end
+      if possible_word
+        @words << word.name
+      end
+    end
+    render json: @words
+  end
+
   # GET /words/1
   # GET /words/1.json
   def show
