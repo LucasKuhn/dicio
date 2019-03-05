@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<p>Name: <%= @word.name %></p>
+<p>Sorted: <%= @word.sorted_word %></p>
+<p>classification: <%= @word.classification %></p>
+
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>
